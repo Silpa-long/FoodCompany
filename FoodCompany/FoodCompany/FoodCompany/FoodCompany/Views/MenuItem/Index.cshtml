@@ -1,0 +1,40 @@
+﻿@model List<MenuItem>
+
+<a asp-controller="MenuItem" asp-action="Create">
+    Create MenuItems
+</a>
+<div></div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">MenuItem Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Discription</th>
+            <th scope="col">Quantity</th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach(var i in Model)
+        {
+            {
+                <tr class="table-success">
+                    <td>@i.MenuItemId</td>
+                    <td>@i.Name</td>
+                    <td>@i.Description</td>
+                    <td>@i.Quantity</td>
+
+                    <td>
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@i.MenuItemId">Edit</a>
+                        <a asp-controller="Category" asp-action="Delete" asp-route-id="@i.MenuItemId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+
+        
+        
+    </tbody>
+</table>
